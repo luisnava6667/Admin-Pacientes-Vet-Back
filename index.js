@@ -13,12 +13,11 @@ dotenv.config()
 conectarDB()
 
 const dominiosPermitidos = [process.env.FRONTEND_URL]
-console.log(dominiosPermitidos)
 
 const corsOptions = {
   origin: function (origin, callback) {
+    console.log('Request origin:', origin)
     if (dominiosPermitidos.indexOf(origin) !== -1) {
-      // El Origen del Request esta permitido
       callback(null, true)
     } else {
       callback(new Error('No permitido por CORS'))
