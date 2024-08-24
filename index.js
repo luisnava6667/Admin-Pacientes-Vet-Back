@@ -6,19 +6,18 @@ import veterinarioRoutes from './routes/veterinarioRoutes.js'
 import pacienteRoutes from './routes/pacienteRoutes.js'
 
 const app = express()
+const corsOptions = {
+  origin: '*'
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 
 dotenv.config()
 
 conectarDB()
 
-const corsOptions = {
-  origin: function (origin, calkback) {
-    callback(null, true)
-  }
-}
 
-app.use(cors(corsOptions))
 
 app.use('/api/veterinarios', veterinarioRoutes)
 app.use('/api/pacientes', pacienteRoutes)
