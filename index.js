@@ -14,12 +14,7 @@ conectarDB()
 
 const corsOptions = {
   origin: function (origin, calkback) {
-    const whitelist = [process.envFRONTEND_URL]
-    if (whitelist.includes(origin)) {
-      calkback(null, true)
-    } else {
-      calkback(new Error('Error of CORS'))
-    }
+    callback(null, true)
   }
 }
 
